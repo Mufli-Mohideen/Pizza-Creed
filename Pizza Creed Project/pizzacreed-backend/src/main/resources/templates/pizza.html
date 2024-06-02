@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza | Pizza Creed</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    body{
+      background-color:#0C0C0C;
+    }
+    .navbar{
+      box-shadow: rgba(255, 191, 0, 0.25) 0px 4px 8px -2px, rgba(255, 191, 0, 0.08) 0px 0px 0px 1px;
+    }
+    .btn-dark-custom {
+      border-radius: 10px;
+      background-color: #FFBF00;
+      color: #0C0C0C;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    .btn-dark-custom:hover {
+      background-color: #FCFCFD;
+      color: #0C0C0C;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn-dark-custom" href="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-dark-custom" href="/addPizza">Add Pizza</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-dark-custom" href="/menu">Menu</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1 class="text-center" style="color:#FFBF00; font-weight:bold; margin-top:20px">Pizza Menu</h1>
+  <div th:if="${successMessage}" class="alert alert-success">
+    <strong th:text="${successMessage}"></strong>
+  </div>
+  <p class="text-center text-light">All the Available Pizzas:</p>
+
+  <ul class="list-group">
+    <li th:each="pizza : ${pizzas}" class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1" th:text="${pizza.name}">Pizza Name</h5>
+        <small th:text="${pizza.size}" class="text-muted">Pizza Size</small>
+      </div>
+      <p class="mb-1">
+        <strong th:text="${pizza.price}" class="text-success">Pizza Price</strong>
+      </p>
+      <div class="btn-group">
+        <a th:href="@{'/editPizza/' + ${pizza.id}}" class="btn btn-sm btn-primary" style="margin-right:5px">Edit</a>
+        <a th:href="@{'/deletePizza/' + ${pizza.id}}" class="btn btn-sm btn-danger">Delete</a>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

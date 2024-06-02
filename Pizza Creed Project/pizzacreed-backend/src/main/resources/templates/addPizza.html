@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Pizza | Pizza Creed</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #0C0C0C;
+    }
+    .navbar{
+      background-color: #FFBF00;
+      border-radius: 5px;
+    }
+    .navbar-nav .nav-link {
+      background-color: #0C0C0C;
+      color: #FFBF00;
+      font-weight: bold;
+      margin-right: 15px;
+      border-radius: 5px;
+    }
+    .navbar-nav .nav-link:hover{
+      background-color: #FCFCFD;
+      color: #0C0C0C;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: rgba(255, 191, 0, 0.4) 0px 0px 0px 2px,
+                  rgba(255, 191, 0, 0.65) 0px 4px 6px -1px,
+                  rgba(255, 191, 0, 0.08) 0px 1px 0px inset;
+      background-color: #FCFCFD;
+      }
+    .btn-primary {
+      background-color: #0C0C0C;
+      border: none;
+    }
+    .btn-primary:hover{
+      background-color: #E5AB00;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      border: none;
+    }
+    .btn-secondary:hover {
+      opacity: 0.8;
+    }
+    .form-group label {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+  <!-- Navigation links -->
+  <nav class="navbar navbar-expand-lg navbar-light mb-4">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/addPizza">Add Pizza</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">Menu</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="text-center mb-4" style="color: #FFBF00; font-size: 2em; font-weight: bold;">- ADD PIZZA -</div>
+  <div th:if="${successMessage}" class="alert alert-success">
+    <strong th:text="${successMessage}"></strong>
+  </div>
+  <p class="lead text-center" style="color: white">Add a new pizza to the menu:</p>
+  <div class="card p-4">
+    <form th:action="@{/addPizza}" th:object="${newPizza}" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" th:field="*{name}" required/>
+      </div>
+      <div class="form-group">
+        <label for="size">Size:</label>
+        <!-- Use a dropdown for size -->
+        <select class="form-control" id="size" th:field="*{size}" required>
+          <option value="SMALL">Small</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LARGE">Large</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price" th:field="*{price}" required/>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3 w-100">
+        <i class="bi bi-plus-circle"></i> Add Pizza
+      </button>
+    </form>
+  </div>
+  <a th:href="@{/menu}" class="btn btn-secondary mt-4 d-block mx-auto" style="width: 200px;">
+    <i class="bi bi-arrow-left-circle"></i> Back to Menu
+  </a>
+</div>
+
+<!-- Bootstrap JS and dependencies (Popper.js and jQuery) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</body>
+</html>

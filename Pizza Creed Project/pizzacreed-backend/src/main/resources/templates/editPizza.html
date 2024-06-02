@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Pizza | Pizza Creed</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    body{
+      background-color: #0C0C0C;
+
+    }
+    h1{
+      color: #FFBF00;
+    }
+    .btn{
+      margin-top: 20px;
+      background-color: #FFBF00;
+      color: #0C0C0C;
+      font-weight: bold;
+    }
+    .btn:hover{
+      background-color: #FCFCFD;
+      color: #0C0C0C;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+
+  <h1 class="text-center" style="color:#FFBF00;">Edit Pizza</h1>
+  <form th:action="@{'/editPizza/' + ${pizza.id}}" th:object="${pizza}" method="post">
+    <div class="form-group">
+      <label for="name" style="color:#FFBF00;">Pizza Name</label>
+      <input type="text" class="form-control" id="name" th:field="*{name}" th:value="${pizza.name}" required>
+    </div>
+    <div class="form-group">
+      <label for="size" style="color:#FFBF00; margin-top:10px;">Pizza Size</label>
+      <select class="form-control" id="size" th:field="*{size}" required>
+        <option value="SMALL" th:selected="${pizza.size == 'SMALL'}">Small</option>
+        <option value="MEDIUM" th:selected="${pizza.size == 'MEDIUM'}">Medium</option>
+        <option value="LARGE" th:selected="${pizza.size == 'LARGE'}">Large</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price"style="color:#FFBF00; margin-top:10px;">Pizza Price</label>
+      <input type="number" class="form-control" id="price" th:field="*{price}" th:value="${pizza.price}" required>
+    </div>
+    <button type="submit" class="btn">Save Changes</button>
+  </form>
+</div>
+
+</body>
+</html>

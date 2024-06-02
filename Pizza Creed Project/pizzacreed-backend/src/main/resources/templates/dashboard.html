@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | PizzaCreed</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #0C0C0C;
+    }
+    .navbar {
+      margin-bottom: 20px;
+      background-color: #0C0C0C;
+      box-shadow: rgba(255, 191, 0, 0.25) 0px 4px 8px -2px, rgba(255, 191, 0, 0.08) 0px 0px 0px 1px;
+      margin-top: 30px;
+    }
+    .pizza-banner {
+      border: 2px solid #dee2e6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pizza-count {
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 50px;
+    }
+    .pizza-count:hover {
+      background-color: #0C0C0C;  /* Keep the background color the same */
+      color: #FFBF00;  /* Keep the text color the same */
+      border: 1px solid #FFBF00;  /* Keep the border color the same */
+    }
+    .btn-custom {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+    .nav-link-custom {
+      font-size: 1.1rem;
+    }
+    .fw-bold{
+      font-weight: bold;
+    }
+    .btn-dark-custom {
+      background-color: #FFBF00;
+      color: #0C0C0C;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    .btn-dark-custom:hover {
+      background-color: #FCFCFD;
+      color: #0C0C0C;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+
+  <h1 class="text-center" style="color: #FFBF00; font-weight: bold;">Welcome to PizzaCreed</h1>
+
+  <nav class="navbar navbar-expand-lg navbar-light rounded">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="btn btn-dark-custom nav-link-custom" href="/addPizza">Add Pizza</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-dark-custom nav-link-custom" href="/menu">Menu</a>
+          </li>
+        </ul>
+        <div class="mx-auto">
+          <span class="fw-bold btn btn-outline-success pizza-count" th:text="'Total Pizzas: ' + ${pizzaCount}">Total Pizzas: 0</span>
+        </div>
+        <div class="d-flex align-items-center gap-3 ms-auto">
+          <p th:if="${username}" class="text-primary my-auto mb-0">Logged in as <span class="fw-bold" th:text="${username}"></span></p>
+          <a class="btn btn-danger btn-custom" href="/login">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="m-4">
+    <img src="/images/banner.jpg" alt="Pizza Banner" class="pizza-banner" height="450px">
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
