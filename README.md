@@ -75,6 +75,11 @@ Follow these instructions to set up and run the Pizza Creed application on your 
 
     - Use the imported collection to send requests to the endpoints defined in the Pizza Creed application.
 
+### Login Credentials
+
+- **Username:** Mufli
+- **Password:** Mufli
+
 ## Contributing
 
 If you want to contribute to this project, please fork the repository and create a pull request with your changes.
@@ -85,4 +90,10 @@ This project is licensed under the MIT License.
 
 ---
 
-Developed by Mufli-Mohideen.
+## Developed by
+
+<div align="center">
+
+###  Mufli-Mohideen 
+
+</div>
