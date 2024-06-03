@@ -90,10 +90,10 @@ This project is licensed under the MIT License.
 
 ---
 
-## Developed by
+## Developed by Mufli-Mohideen 
 
 <div align="center">
 
-###  Mufli-Mohideen 
+## Developed by Mufli-Mohideen
 
 </div>
