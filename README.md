@@ -90,8 +90,6 @@ This project is licensed under the MIT License.
 
 ---
 
-## Developed by Mufli-Mohideen 
-
 <div align="center">
 
 ## Developed by Mufli-Mohideen
